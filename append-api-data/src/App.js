@@ -2,15 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import 'style.css'
 
-const jokeCardStyle = {
-  border: '1px solid red'
-}
-
 const link = 'https://official-joke-api.appspot.com/random_joke'
 
 const GetNewJoke = ({ appendJoke }) => {
   const [randomJoke, setRandomJoke] = useState([])
-  // const [allJokes, setAllJokes] = useState([])
 
   const fetchJokes = (url) => {
     fetch(url)
@@ -24,14 +19,30 @@ const GetNewJoke = ({ appendJoke }) => {
     fetchJokes(link)
   }, [appendJoke])
 
+  const jokeCardStyle = {
+    border: '1px solid red',
+    borderRadius: '10px',
+    width: '20%',
+    padding: '12px',
+    margin: '5px',
+    display: 'flex',
+    flexDirection: 'column'
+  }
+  const setupStyle = {
+    margin: '8px'
+  }
+  const punchlineStyle = {
+    margin: '8px'
+  }
+
   if (randomJoke) {
     return (
       <div>
         {randomJoke.map((joke, idx) => {
           return (
             <div key={idx} style={jokeCardStyle}>
-              <span>{joke.setup}</span>
-              <span>{joke.punchline}</span>
+              <span style={setupStyle}>{joke.setup}</span>
+              <span style={punchlineStyle}>{joke.punchline}</span>
             </div>
           )
         })}
