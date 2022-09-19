@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import 'style.css'
 
-const link = 'https://example.gcommer.com/users'
+const link = 'https://official-joke-api.appspot.com/random_joke'
 
 //original link, https://official-joke-api.appspot.com/random_joke, stopped letting me fetch until the next day
 
-const GetNewJoke = ({ fetchMe }) => {
+const GetNewJoke = ({ appendJoke }) => {
   const [randomJoke, setRandomJoke] = useState('')
+  const [allJokes, setAllJokes] = useState([])
 
   const fetchJokes = (url) => {
     fetch(url)
@@ -18,29 +19,36 @@ const GetNewJoke = ({ fetchMe }) => {
   }
 
   useEffect(() => {
-    console.log('randomJoke: ', randomJoke)
-
     fetchJokes(link)
-  }, [fetchMe])
+  }, [appendJoke])
+
+  const jokeCardStyle = {
+    border: '1px solid red'
+  }
 
   if (randomJoke) {
-    return <>{JSON.stringify(randomJoke)}</>
+    return (
+      <div style={jokeCardStyle}>
+        <span>{randomJoke.setup}</span>
+        <span>{randomJoke.punchline}</span>
+      </div>
+    )
   }
 }
 
 export default function App() {
-  const [fetchMe, setFetchMe] = useState('')
+  const [appendJoke, setAppendJoke] = useState('')
 
   return (
     <div id="jokeBox">
       <button
         onClick={() => {
-          setFetchMe(fetchMe + 1)
+          setAppendJoke(appendJoke + 1)
         }}
       >
-        Fetch Again
+        Append Joke
       </button>
-      <GetNewJoke fetchMe={fetchMe}></GetNewJoke>
+      <GetNewJoke appendJoke={appendJoke}></GetNewJoke>
     </div>
   )
 }
