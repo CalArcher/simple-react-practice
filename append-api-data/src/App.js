@@ -19,6 +19,7 @@ const GetNewJoke = ({ fetchMe }) => {
 
   useEffect(() => {
     console.log('randomJoke: ', randomJoke)
+
     fetchJokes(link)
   }, [fetchMe])
 
