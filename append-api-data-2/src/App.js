@@ -47,6 +47,10 @@ const buttonCont = {
   height: '200px',
   display: 'flex',
   justifyContent: 'center',
+  border: '3px dashed rgba(255,255,255,0.5)',
+  borderRadius: '8px',
+  margin: '5px',
+  padding: '5px',
   alignItems: 'center'
 }
 
