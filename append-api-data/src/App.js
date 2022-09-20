@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import ReactDOM from 'react-dom'
 import 'style.css'
 
 const link = 'https://official-joke-api.appspot.com/random_joke'
 
-const GetNewJoke = ({ appendJoke }) => {
-  const [randomJoke, setRandomJoke] = useState([])
+const JokesContainer = ({ appendJoke }) => {
+  const [jokes, setJokes] = useState([])
 
   const fetchJokes = (url) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setRandomJoke([...randomJoke, data])
+        setJokes([...jokes, data])
       })
   }
 
@@ -19,6 +18,12 @@ const GetNewJoke = ({ appendJoke }) => {
     fetchJokes(link)
   }, [appendJoke])
 
+  if (jokes) {
+    return <JokeList jokes={jokes}></JokeList>
+  }
+}
+
+const JokeList = ({ jokes }) => {
   const jokeCardStyle = {
     border: '1px solid red',
     borderRadius: '10px',
@@ -35,20 +40,21 @@ const GetNewJoke = ({ appendJoke }) => {
     margin: '8px'
   }
 
-  if (randomJoke) {
-    return (
-      <div>
-        {randomJoke.map((joke, idx) => {
+  return (
+    <div>
+      {jokes.map((joke, idx) => {
+        //handles undefined joke in jokes prop
+        if (joke) {
           return (
             <div key={idx} style={jokeCardStyle}>
               <span style={setupStyle}>{joke.setup}</span>
               <span style={punchlineStyle}>{joke.punchline}</span>
             </div>
           )
-        })}
-      </div>
-    )
-  }
+        }
+      })}
+    </div>
+  )
 }
 
 export default function App() {
@@ -63,7 +69,7 @@ export default function App() {
       >
         Append Joke
       </button>
-      <GetNewJoke appendJoke={appendJoke}></GetNewJoke>
+      <JokesContainer appendJoke={appendJoke}></JokesContainer>
     </div>
   )
 }
