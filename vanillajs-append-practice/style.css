@@ -1,0 +1,64 @@
+body {
+  background: black;
+  color: rgb(222, 222, 222);
+}
+h1 {
+  margin: 0;
+  font-family: sans-serif;
+}
+input {
+  width: 200px;
+  height: 50px;
+  color: white;
+  padding-left: 1rem;
+  margin-right: 0.5rem;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: black;
+  border: 2px solid rgba(222, 222, 222, 0.75);
+  border-radius: 8px;
+}
+button {
+  width: 95px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid rgba(22, 22, 22, 0.75);
+  border-radius: 8px;
+}
+span {
+  padding: 0 0 1rem 1rem;
+  border-bottom: 1px sold red;
+  font-size: 15px;
+  color: red;
+  font-family: sans-serif;
+}
+.input-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.coin-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  width: 5%;
+  border: 3px solid rgba(222, 222, 222, 0.75);
+  border-radius: 8px;
+}
+.coin-cont h2 {
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 12px;
+}
+.coin-cont img {
+  width: 28px;
+}
+.new-coins {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
