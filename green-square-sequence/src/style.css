@@ -1,0 +1,20 @@
+html {
+  background: rgb(55, 55, 55);
+  color: rgb(209, 209, 209);
+  padding: 3rem;
+}
+
+[class*='-square'] {
+  width: 100px;
+  height: 100px;
+  background: green;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.invis {
+  background: transparent;
+  user-select: none;
+  pointer-events: none;
+  box-sizing: border-box;
+}
