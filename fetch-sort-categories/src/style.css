@@ -1,0 +1,87 @@
+html {
+  background: rgb(55, 55, 55);
+  color: rgb(209, 209, 209);
+}
+
+.people {
+  margin: 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.males {
+  gap: 1vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50vw;
+  height: fit-content;
+  padding: 2rem 0 0 0;
+  margin-right: 3rem;
+}
+
+.females {
+  gap: 1vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 50vw;
+  height: fit-content;
+  padding: 2rem 0 0 0;
+  margin-left: 3rem;
+}
+
+.personCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+  border: 2px solid gray;
+  border-radius: 10px;
+  aspect-ratio: 1/1;
+}
+
+.sortLabels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.sortLabels > h2 {
+  font-family: sans-serif;
+  font-size: 2rem;
+}
+
+.midLine {
+  border-right: 1px solid gray;
+}
+
+button {
+  cursor: pointer;
+  margin: 1rem;
+  width: 14vw;
+  height: 3vw;
+  font-size: 1.2rem;
+}
+
+button:hover {
+  font-weight: bold;
+
+  background-color: lightgray;
+}
+
+img {
+  width: 70%;
+  border-radius: 5rem;
+}
+
+h2 {
+  font-size: 0.75rem;
+  font-family: sans-serif;
+}
