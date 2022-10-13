@@ -1,5 +1,5 @@
 ### Quick exercise populating some API data in React
 
-#### Result:
+### Results:
 
 <img src='result.png'>

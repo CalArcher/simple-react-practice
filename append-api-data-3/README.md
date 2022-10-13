@@ -1,3 +1,3 @@
-## Results
+### Results:
 
 <img src="results.png"/>
